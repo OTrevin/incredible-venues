@@ -7,7 +7,7 @@
     <tr>
       <th>Name</th>
       <th>Address</th>
-      <th>Description</th>
+      <th>Capacity</th>
 
 
       <th colspan="3"></th>
@@ -15,14 +15,14 @@
   </thead>
 
   <tbody>
-    <% @restaurants.each do |restaurant| %>
+    <% @venues.each do |venue| %>
       <tr>
-        <td><%= restaurant.name %></td>
-        <td><%= restaurant.address %></td>
-        <td><%= restaurant.stars %></td>
-        <td><%= link_to 'Show', restaurant %></td>
-        <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
-        <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= venue.name %></td>
+        <td><%= venue.address %></td>
+        <td><%= venue.capacity %></td>
+        <td><%= link_to 'Show', venue %></td>
+        <td><%= link_to 'Edit', edit_venue_path(venue) %></td>
+        <td><%= link_to 'Destroy', venue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,17 +30,4 @@
 
 <br>
 
-<%= link_to 'New Restaurant', new_restaurant_path %>
 
-create_table "venues", force: :cascade do |t|
-    t.string "name"
-    t.string "address"
-    t.string "description"
-    t.integer "capacity"
-    t.integer "price_per_day"
-    t.integer "price_per_half_day"
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_venues_on_user_id"
-  end

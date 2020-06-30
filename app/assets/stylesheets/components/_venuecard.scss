@@ -1,0 +1,18 @@
+
+.main-fotos-container {
+  display: flex;
+  .first-foto {
+    width: 50vw;
+    img {
+      width: 50vw;
+    }
+  }
+  .grid-fotos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    img {
+      max-width: 100%;
+
+    }
+  }
+}
