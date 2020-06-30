@@ -1,0 +1,28 @@
+<div class="container my-5">
+  <h1>Account</h1>
+  <p>Welcome, <%= @user.first_name %></p>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="account-card mt-3 col-lg-4">
+      <div class="details" >
+        <h1><%= link_to "Personal Info", account_profile_path %> > </h1>
+        <p class="pr-3">Provide personal details and how we can reach you</p>
+      </div>
+    </div>
+    <div class="account-card mt-3 col-lg-4">
+      <div class="details" >
+        <h1><%= link_to "My Booking", account_bookings_path %> > </h1>
+        <p class="pr-3">Check out your bookings details and don't miss it</p>
+      </div>
+    </div>
+    <div class="account-card mt-3 col-lg-4">
+      <div class="details" >
+        <h1><%= link_to "My Listing", account_profile_path %> > </h1>
+        <p class="pr-3">Check out your listing details and update the status</p>
+      </div>
+    </div>
+
+  </div>
+</div>

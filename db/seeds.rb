@@ -20,7 +20,6 @@ end
 
 puts "Creating Venues"
 Venue.destroy_all
-id = 0
 
 9.times do 
   Venue.create!(
@@ -29,7 +28,7 @@ id = 0
     description: Faker::Lorem.sentences(number: 1),
     capacity: rand(10..100),
     price_per_day: Faker::Commerce.price,
-    price_per_half_day: Faker::Commerce.price
+    price_per_half_day: Faker::Commerce.price,
     user_id: User.all.sample
   )
 end
