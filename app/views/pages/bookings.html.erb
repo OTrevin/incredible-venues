@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="product-listing mt-3 ml-3">
+      <% @bookings.each do |booking| %>
+          <% flat = Flat.find(booking.flat_id) %>
+              <% flat.photos.each do |photo| %>
+                 <%= cl_image_tag photo.key, width: 370, height:200, crop: :fill, class: "product-image" %>
+              <% end %>
+              <h1><%= link_to flat.name, flat_path(flat) %></h1>
+              <div class="flat-detials d-flex">
+                <p><%= flat.address %>&nbsp;&nbsp;</p>
+                <div class="numbers d-flex">
+                  <p>Icon: <%= flat.number_of_guest %>,&nbsp;</p>
+                  <p>Icon: <%= flat.number_of_bedroom %>,&nbsp;</p>
+                  <p>Icon: <%= flat.number_of_bathroom %></p>
+                </div>
+              </div>
+              <div class="description">
+                <p><%= booking.start_date %> to <%= booking.end_date %></p>
+                <h3>Total: $<%= booking.total_price %> </h3>
+              </div>
+      <% end %>
+    </div>
+  </div>
+</div>

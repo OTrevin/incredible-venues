@@ -29,7 +29,11 @@ Venue.destroy_all
     capacity: rand(10..100),
     price_per_day: Faker::Commerce.price,
     price_per_half_day: Faker::Commerce.price,
+<<<<<<< HEAD
     user_id: User.all.ids.sample
+=======
+    user_id: User.all.sample
+>>>>>>> a7448e8e6560822d1685dc75287dc3fd345cca24
   )
 end
 
