@@ -6,12 +6,12 @@
 // General style
 $font-family-sans-serif: $body-font;
 $headings-font-family: $headers-font;
-$body-bg: $light-gray;
+$body-bg: $white;
 $font-size-base: 1rem;
 
 // Colors
 $body-color: $gray;
-$primary: $blue;
+$primary: $black;
 $success: $green;
 $info: $yellow;
 $danger: $red;
@@ -23,8 +23,8 @@ $border-radius-lg: 2px;
 $border-radius-sm: 2px;
 
 // Override other variables below!
-$container-large-desktop: 1920px;
-$grid-gutter-width: 30px;
+// $container-large-desktop: 1920px;
+// $grid-gutter-width: 30px;
 
 $container-max-widths: (
   md: 720px,

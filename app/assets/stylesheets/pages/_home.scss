@@ -2,6 +2,7 @@
   border: 1px solid #616161;
   border-radius: 15px;
   height: 70px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
 .name_input {
@@ -12,6 +13,9 @@
   border-radius: 15px;
   &:hover {
     border: 2px solid $black;
+  }
+  &:active {
+    border: 2px solid $black !important;
   }
 }
 
@@ -33,6 +37,9 @@
     text-align: center;
     border-left: 1px solid #b7b7b7;
     background-color: rgba(0, 0, 0, 0) !important;
+    &:hover {
+      border: 2px solid $black;
+    }
   }
 }
 

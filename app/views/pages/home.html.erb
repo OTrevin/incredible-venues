@@ -1,7 +1,4 @@
-<div class="container">
-
-
-<div class="container mt-5">
+<div class="container mt-5 ">
     <div id='venue-booking-dates'>
       <%= simple_form_for :search, url: s_path, method: "GET", html: { class: '' } do |f| %>
       <div class="search_bar d-flex  align-items-center input_area text-align-center pr-2">
@@ -10,7 +7,7 @@
         </div>
         <%= f.input :start_date, as: :string, type: :text, :placeholder => "Check in" , :label => false, input_html: { class: 'date_input mt-3' } %>
         <%= f.input :end_date, as: :string, type: :text, :placeholder => "Check out" , :label => false, input_html: { class: 'date_input mt-3' }  %>
-        <%= f.submit "Search", class: "search_bar_btn" %>
+        <%= f.submit "Search", class: "search_bar_btn ml-3" %>
       </div>
       <% end %>
     </div>

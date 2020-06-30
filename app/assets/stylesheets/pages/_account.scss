@@ -1,10 +1,17 @@
+.account_header {
+  h1 {
+    font-weight: 600;
+    font-size: 50px;
+  }
+}
+
 .account-card {
   padding: 0 6px;
 
   h1 {
     padding: 20px 10px 0 22px;
-    font-size: 19px;
-    font-weight: 800;
+    font-size: 22px;
+    font-weight: 700;
   }
   .flat-detials {
     font-size: 12.5px;
@@ -30,7 +37,7 @@
     border: 1px solid #f7f7f7;
     border-radius: 20px;
     background-color: white;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
     padding: 40px 10px;
   }
 }
