@@ -1,0 +1,36 @@
+.account-card {
+  padding: 0 6px;
+
+  h1 {
+    padding: 20px 10px 0 22px;
+    font-size: 19px;
+    font-weight: 800;
+  }
+  .flat-detials {
+    font-size: 12.5px;
+    padding: 0 0 0 22px;
+    font-weight: 500;
+  }
+
+  p {
+    padding: 0 10px 0 22px;
+    margin-bottom: 10px;
+  }
+  .description p {
+    font-size: 14px;
+    opacity: 0.4;
+    padding: 0 25px 20px 22px;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  .details {
+    border: 1px solid #f7f7f7;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
+    padding: 40px 10px;
+  }
+}

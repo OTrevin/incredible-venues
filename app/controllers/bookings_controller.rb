@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
 
   def create
-    @venue= Venue.find(params[:venue_id])
+    @venue = Venue.find(params[:venue_id])
     @booking = Booking.new(booking_params)
     @booking.venue_id = @venue.id
     @booking.user_id = current_user.id
