@@ -15,7 +15,10 @@
           <%= link_to "Home", root_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Host your venue", "#", class: "nav-link" %>
+          <%= link_to "Host your venue", new_venue_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "All venues", venues_path, class: "nav-link" %>
         </li>
         <li class="nav-item dropdown users_home_nav text-align-center">
           <div class="nav d-flex align-items-center">
