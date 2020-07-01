@@ -9,7 +9,7 @@
 puts "Creating Users"
 User.destroy_all
 
-10.times do 
+10.times do
     User.create!(
     first_name: Faker::Name.first_name,
     email: Faker::Internet.email,
@@ -21,7 +21,7 @@ end
 puts "Creating Venues"
 Venue.destroy_all
 
-9.times do 
+9.times do
   Venue.create!(
     name: Faker::Restaurant.name,
     address: Faker::Address.full_address,

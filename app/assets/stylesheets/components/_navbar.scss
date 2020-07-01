@@ -10,3 +10,45 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.users_home_nav {
+  padding: 8px 20px;
+  border: 1px solid #dedede;
+  border-radius: 30px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-expand-sm .navbar-nav {
+  align-items: center;
+}
+
+.nav-item {
+  margin-left: 10px;
+}
+
+.nav-link {
+  padding-right: 20px !important;
+  padding-left: 20px !important;
+  &:hover {
+    background-color: #f7f7f7;
+    border-radius: 20px;
+  }
+}
+
+@media only screen and (max-width: 1119px) {
+  .nav_bar_padding {
+    padding: 30px 20px 0 20px;
+  }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1700px) {
+  .nav_bar_padding {
+    padding: 40px 27px 0 27px;
+  }
+}
+
+@media only screen and (min-width: 1701px) {
+  .nav_bar_padding {
+    padding: 40px 72px 0 72px;
+  }
+}
