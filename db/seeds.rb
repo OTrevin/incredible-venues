@@ -28,7 +28,6 @@ Venue.destroy_all
     description: Faker::Lorem.sentences(number: 1),
     capacity: rand(10..100),
     price_per_day: Faker::Commerce.price,
-    price_per_half_day: Faker::Commerce.price,
     user_id: User.all.ids.sample)
 end
 
