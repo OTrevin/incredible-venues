@@ -37,7 +37,7 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.12.0'
 gem 'pundit'
 gem 'flatpickr'
- 
+gem 'geocoder'
 
 
 group :development, :test do
