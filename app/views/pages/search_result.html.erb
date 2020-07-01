@@ -5,27 +5,28 @@
 <!--<<h1>Stays in <%= @query %></h1>> -->
 <div class ="container">
   <div class ="row">
-    <div class ="col-sm-6 offset-sm-2">
-      <a class ="btn btn-ghost" href ="#">Price</a>
-      <a class ="btn btn-ghost" href ="#">Nice Amenities</a>
-      <a class ="btn btn-ghost" href ="#">Half day avilable</a>
-      <a class ="btn btn-ghost" href ="#">Cancellation Flexibility</a>
+    <div class ="col-lg-6">
+      <a class ="btn btn-ghost-secondary" href ="#">Price</a>
+      <a class ="btn btn-ghost-secondary" href ="#">Nice Amenities</a>
+      <a class ="btn btn-ghost-secondary" href ="#">Half day avilable</a>
+      <a class ="btn btn-ghost-secondary" href ="#">Cancellation Flexibility</a>
     </div>
   </div>
   
   <div class = "venue-product">
+    <% @venues.each do |venue| %>
 
     <div class = "venue-image">
-      <img src ="https://a0.muscache.com/im/pictures/e5adaf60-db66-48a5-b2c7-159b45a1e7f1.jpg?im_w=720">
+      <img src = "https://media.timeout.com/images/103752936/630/472/image.jpg" width = "300", height = "300">
     </div>
 
-    <div class ="venue-super">
+    <%# <div class ="venue-super">
       <p>SUPERVENUE</p>
-    </div>
+    </div> %>
 
     <div class ="venue-card-infos">
       <div class ="venue-card-description">
-        <p> Room in boutique hotel in Chinatown</p>
+        <p> <%= venue.description %></p>
       </div>
 
       <div class ="venue-card-heart">
@@ -33,7 +34,7 @@
       </div>
 
       <div class ="venue-card-name">
-        <h3>Single cabin shared bathroom in Tanjong</h3>
+        <h3><%= venue.name %></h3>
       </div>
 
       <div class ="venue-card-amenities">
@@ -46,16 +47,17 @@
       </div>
 
       <div class ="venue-card-capacity">
-        <p>100 pax</p>
+        <p><%= venue.capacity %> PAX</p>
       </div>
 
       <div class ="venue-card-price">
-        <h3><strong>$36 SGD / Day</strong></h3>
+        <h3><strong>$<%= venue.price_per_day %> per day</strong></h3>
       </div>
 
       <div class ="venue-card-price-total">
-        <p><u>$36 SGD</u></p>
+        <p><u>$ </u></p>
       </div>
     </div>
+    <% end %>
 </div>
 
