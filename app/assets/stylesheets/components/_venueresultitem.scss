@@ -1,0 +1,86 @@
+.container {
+  color: $light-gray;
+  font-family: $body-font;
+}
+
+.venue-product {
+    overflow: hidden;
+    height: 180px;
+    background: white;
+    display: flex;
+    align-items: center;
+  }
+  
+  .venue-image {
+    height: 100%;
+    width: 240px;
+    border-radius: 4px;
+    object-fit: cover;
+  }
+  
+  .venue-card-infos {
+    margin-top: 10px;
+  }
+
+  .venue-card-infos p {
+    font-size: 12px;
+    line-height: 1.4;
+    opacity: .7;
+    margin-bottom: 0;
+    margin-top: 8px;
+    color: $light-gray;
+  }
+
+  .venue-card-infos h3 {
+    font-size: 14px;
+    line-height: 1.4;
+    opacity: .7;
+    margin-bottom: 0;
+    margin-top: 8px;
+    color: black;
+  }
+
+  .venue-super {
+    font-size: 12px;
+    font-weight: bold;
+    border: 1px solid $light-gray;
+    border-radius: 3px;
+    background-color: whitesmoke;
+    color: black;
+    margin: 0;
+  }
+
+  .venue-card-name {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .venue-card-heart p {
+    opacity: .7;
+    margin-bottom: 0;
+    margin-top: 8px;
+    color: $light-gray;
+  }
+  
+  .venue-card-amenities {
+    opacity: .7;
+    margin-bottom: 0;
+    margin-top: 8px;
+    color: $light-gray;
+  }
+
+  .venue-card-rating {
+    opacity: .7;
+    margin-bottom: 0;
+    margin-top: 8px;
+    color: $light-gray;
+  }
+
+  .venue-card-price {
+    padding: 16px;
+  }
+  
+  .venue-card-price-total {
+    padding: 16px;
+  }

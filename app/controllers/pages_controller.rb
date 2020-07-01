@@ -8,7 +8,9 @@ class PagesController < ApplicationController
   end
 
   def search_result
-    @venues = Venue.where("name ILIKE ?", params[:search][:name])
+    # @venues = Venue.where("name ILIKE ?", params[:search][:name])
+    @venues = Venue.all
+
   end
 
   def account
