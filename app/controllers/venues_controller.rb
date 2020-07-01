@@ -1,4 +1,6 @@
 class VenuesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:show, :index]
+
   def index
     @venues = Venue.all
   end
