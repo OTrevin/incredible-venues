@@ -5,11 +5,11 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.venue_id = @venue.id
     @booking.user_id = current_user.id
-    if @booking.price_per_day == false
-      @booking.total_price = (@booking.end_date - @booking.start_date) * @venue.price_per_half_day
-    else
+    # if @booking.price_per_day == false
+    #   @booking.total_price = (@booking.end_date - @booking.start_date) * @venue.price_per_half_day
+    # else
       @booking.total_price = (@booking.end_date - @booking.start_date) * @venue.price_per_day
-    end
+    # end
 
     if @booking.save
       redirect_to account_bookings_path
