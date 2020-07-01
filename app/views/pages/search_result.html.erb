@@ -12,7 +12,7 @@
       <a class ="btn btn-ghost-secondary" href ="#">Cancellation Flexibility</a>
     </div>
   </div>
-  
+
   <div class = "venue-product">
     <% @venues.each do |venue| %>
 
@@ -34,7 +34,7 @@
       </div>
 
       <div class ="venue-card-name">
-        <h3><%= venue.name %></h3>
+        <h3><%= link_to venue.name, venue_path(venue) %></h3>
       </div>
 
       <div class ="venue-card-amenities">
