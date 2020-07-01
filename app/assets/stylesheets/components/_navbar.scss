@@ -41,20 +41,26 @@
   }
 }
 
-@media only screen and (min-width: 1200px) and (max-width: 1700px) {
+@media only screen and (min-width: 1200px) and (max-width: 1500px) {
   .nav_bar_padding {
-    padding: 40px 27px 0 27px;
+    padding: 40px 48px 0 48px;
+  }
+}
+
+@media only screen and (min-width: 1501px) {
+  .nav_bar_padding {
+    padding: 40px 158px 0 158px;
   }
 }
 
 @media only screen and (min-width: 1701px) {
   .nav_bar_padding {
-    padding: 40px 90px 0 90px;
+    padding: 40px 88px 0 88px;
   }
 }
 
 @media only screen and (min-width: 1801px) {
   .nav_bar_padding {
-    padding: 40px 120px 0 120px;
+    padding: 40px 150px 0 150px;
   }
 }

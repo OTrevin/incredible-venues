@@ -27,8 +27,9 @@ class PagesController < ApplicationController
   end
 
   def my_listings
+    @venues = Venue.where(user_id: current_user.id)
     @user = User.find(current_user.id)
-    @venu = Venue.new
+    @venue = Venue.new
   end
 
 

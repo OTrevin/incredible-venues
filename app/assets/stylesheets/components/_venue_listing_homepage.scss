@@ -5,7 +5,7 @@
   }
 }
 
-.booking-card {
+.venue-card {
   display: flex;
   padding: 0 6px;
 
@@ -44,21 +44,4 @@
 
 .venue-section{
   padding-top: 30px;
-}
-
-
-.edit-bar {
-  .edit-btn {
-    font-size: 13px;
-    padding: 4px 10px;
-    border: 1px solid $black;
-    border-radius: 10px;
-  }
-  .delete-btn {
-    font-size: 13px;
-    color: red;
-    padding: 4px 10px;
-    border: 1px solid red;
-    border-radius: 10px;
-  }
 }
