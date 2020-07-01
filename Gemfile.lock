@@ -96,11 +96,7 @@ GEM
       railties (>= 3.2, < 6.1)
     erubi (1.9.0)
     execjs (2.7.0)
-<<<<<<< HEAD
-    faker (2.12.0)
-=======
     faker (2.13.0)
->>>>>>> 097263b0c04e83143d2dc6f96a1b4f8d291a1a57
       i18n (>= 1.6, < 2)
     ffi (1.13.1)
     flatpickr (4.6.3.1)
