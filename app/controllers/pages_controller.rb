@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: :home
+  skip_before_action :authenticate_user!, only: [:home, :search_result]
 
   def home
     @booking = Booking.new
@@ -26,6 +26,7 @@ class PagesController < ApplicationController
 
   def my_listings
     @user = User.find(current_user.id)
+    @venu = Venue.new
   end
 
 end
