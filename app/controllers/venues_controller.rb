@@ -1,10 +1,10 @@
 class VenuesController < ApplicationController
-    def index
+  def index
     @venues = Venue.all
   end
 
   def show
-    @vanue = Venue.find(params[:id])
+    @venue = Venue.find(params[:id])
   end
 
   def new
@@ -38,5 +38,4 @@ class VenuesController < ApplicationController
   def venue_params
     params.require(:venue).permit(:name)
   end
-
 end
