@@ -49,6 +49,12 @@
 
 @media only screen and (min-width: 1701px) {
   .nav_bar_padding {
-    padding: 40px 72px 0 72px;
+    padding: 40px 90px 0 90px;
+  }
+}
+
+@media only screen and (min-width: 1801px) {
+  .nav_bar_padding {
+    padding: 40px 120px 0 120px;
   }
 }
