@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_30_043248) do
+ActiveRecord::Schema.define(version: 2020_06_30_173559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 2020_06_30_043248) do
     t.date "end_date"
     t.boolean "status"
     t.integer "total_price"
-    t.string "period"
     t.bigint "user_id", null: false
     t.bigint "venue_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -73,7 +72,6 @@ ActiveRecord::Schema.define(version: 2020_06_30_043248) do
     t.string "description"
     t.integer "capacity"
     t.integer "price_per_day"
-    t.integer "price_per_half_day"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
