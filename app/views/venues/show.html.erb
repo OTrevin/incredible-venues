@@ -16,8 +16,9 @@
   </div>
 </div>
 
-
-<%= link_to 'Edit', edit_venue_path(@venue) %> |
+<% if @venue.user_id == current_user.id %>
+  <%= link_to 'Edit', edit_venue_path(@venue) %> |
+<% end %>
 <%= link_to 'Back', venues_path %>
 
 

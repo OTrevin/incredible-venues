@@ -30,11 +30,17 @@ class PagesController < ApplicationController
   def bookings
     @user = User.find(current_user.id)
     @bookings = Booking.where(user_id: @user)
+    # raise
+    # @booking.status = false
+    # @booking_status = @booking.status
   end
 
   def my_listings
+    @venues = Venue.where(user_id: current_user.id)
     @user = User.find(current_user.id)
-    @venu = Venue.new
+    @venue = Venue.new
+    @bookings = Booking.where(venue_id: @venues)
+    # raise
   end
 
 
@@ -55,6 +61,7 @@ class PagesController < ApplicationController
   end
 
   def destroy
+    # @venue = Venue.find(params[:id])
     @booking = Booking.find(params[:id])
     @booking.destroy
     redirect_to account_bookings_path
