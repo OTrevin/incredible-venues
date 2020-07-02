@@ -1,13 +1,16 @@
 class VenuesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
+  before_action :check_owner, only: [:edit]
 
   def index
     @venues = Venue.all
   end
+  
 
   def show
     @venue = Venue.find(params[:id])
     @booking = Booking.new
+    session[:stored_url] = request.url
   end
 
   def new
@@ -34,7 +37,7 @@ class VenuesController < ApplicationController
   def destroy
     @venue = Venue.find(params[:id])
     @venue.destroy
-    redirect_to venues_path
+    redirect_to account_my_listings_path
   end
 
   private
@@ -42,4 +45,12 @@ class VenuesController < ApplicationController
   def venue_params
     params.require(:venue).permit(:name, :description, :address, :price_per_day, :capacity, photos: [])
   end
+
+  def check_owner
+    if current_user == Venue.find(params[:id]).user
+    else
+      redirect_to root_path, alert: "You got no permission to edit the page"
+    end
+  end
+
 end

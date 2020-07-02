@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_01_032621) do
+ActiveRecord::Schema.define(version: 2020_07_02_074341) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,14 +45,23 @@ ActiveRecord::Schema.define(version: 2020_07_01_032621) do
   create_table "bookings", force: :cascade do |t|
     t.date "start_date"
     t.date "end_date"
-    t.boolean "status"
     t.integer "total_price"
     t.bigint "user_id", null: false
     t.bigint "venue_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "status", default: false
     t.index ["user_id"], name: "index_bookings_on_user_id"
     t.index ["venue_id"], name: "index_bookings_on_venue_id"
+  end
+
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text "content"
+    t.string "searchable_type"
+    t.bigint "searchable_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -96,6 +105,8 @@ ActiveRecord::Schema.define(version: 2020_07_01_032621) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_venues_on_user_id"
   end
 

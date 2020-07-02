@@ -5,7 +5,7 @@
   }
 }
 
-.booking-card {
+.venue-card {
   display: flex;
   padding-left: 9px;
 
@@ -24,20 +24,24 @@
     padding: 0 10px 0 22px;
     margin-bottom: 10px;
   }
+
+  h4 {
+    font-size: 14px;
+    padding: 0 10px 0 22px;
+  }
+
+  h3 {
+    padding: 0 10px 0 22px;
+  }
   .description p {
     font-size: 14px;
     opacity: 0.4;
     padding: 0 25px 20px 22px;
   }
+
   .description h6 {
     font-size: 12px;
   }
-
-  h3 {
-    // margin-bottom: -10px;
-    padding: 0 10px 0 22px;
-  }
-
   a {
     text-decoration: none;
     color: black;
@@ -49,32 +53,9 @@
     background-color: white;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
   }
+
 }
 
 .venue-section{
   padding-top: 30px;
-}
-
-
-.edit-bar {
-  .edit-btn {
-    font-size: 13px;
-    padding: 4px 10px;
-    border: 1px solid $black;
-    border-radius: 10px;
-  }
-  .delete-btn {
-    font-size: 13px;
-    color: red;
-    padding: 4px 10px;
-    border: 1px solid red;
-    border-radius: 10px;
-  }
-  .approve-btn {
-    font-size: 13px;
-    padding: 4px 10px;
-    color: #1fd16c;
-    border: 1px solid #1fd16c;
-    border-radius: 10px;
-  }
 }
