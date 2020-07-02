@@ -29,14 +29,12 @@ import { initMapbox } from '../plugins/init_mapbox';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 document.addEventListener('turbolinks:load', () => {
-  initMapbox();
 })
+initMapbox();
+
 // Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
-// document.addEventListener("turbolinks:load", () => {
-//   datePickr();
-//   // Call your functions here, e.g:
-//   // initSelect2();
-// });
-// searchDatePickr();
-// datePickr();
+document.addEventListener("turbolinks:load", () => {
+  datePickr();
+});
+searchDatePickr();
+datePickr();

@@ -12,11 +12,10 @@
       <% end %>
     </div>
 </div>
-
 <div class = "title-container">
   <div class = "search-result-title">
     <P> From <%= params[:search][:start_date] %> to <%= params[:search][:end_date] %> </p>
-    <h3>15 Venues available in <strong><%= params[:search][:name] %></strong><h3>
+    <h3> <%= @venues.length %> Venues available in <strong><%= params[:search][:name] %></strong><h3>
   </div>
   <div class ="buttons">
     <a class ="btn btn-secondary" href ="#">Price</a>
@@ -29,30 +28,32 @@
   <div class="card mb-3">
     <% @venues.each do |venue| %>
     <div class="row no-gutters">
-      <div class="venue-image">
-        <img src="https://media.timeout.com/images/103752936/630/472/image.jpg" class="card-img" alt="...">
+      <div class="col-md-4">
+        <% venue.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, width: 370, height:200, crop: :fill, class: "product-image" %>
+        <% end %>
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <h3 class="venue-card-name"><%= venue.name %></h5>
-          <div class ="venue-card-infos">
-            <p class="venue-card-description"><%= venue.description %></p>
-            <i class="fa fa-heart-o" aria-hidden="true" style="font-size:50px;"></i>
-            <p class="venue-card-amenities">1 guest · Studio · 1 bed · 1 shared bathroom</p>          
-            <p class="venue-card-rating"><i class="fa fa-star" aria-hidden="true" color="$red"></i>
-            <strong>4.89</strong>(46)</p>
-            <p class="venue-card-capacity"><%= venue.capacity %> PAX</p>
-            <h3 class="venue-card-price"><strong>$<%= venue.price_per_day %> per day</strong></h3>
+          <h3 class="venue-card-name"><%= venue.name %></h3>
+            <div class ="venue-card-infos">
+              <p class="venue-card-description"><%= venue.description %></p>
+              <i class="fa fa-heart-o" aria-hidden="true" style="font-size:50px;"></i>
+              <p class="venue-card-amenities">1 guest · Studio · 1 bed · 1 shared bathroom</p>          
+              <p class="venue-card-rating"><i class="fa fa-star" aria-hidden="true" color="$red"></i>
+              <strong>4.89</strong>(46)</p>
+              <p class="venue-card-capacity"><%= venue.capacity %> PAX</p>
+              <h3 class="venue-card-price"><strong>$<%= venue.price_per_day %> per day</strong></h3>
+            </div>
         </div>
       </div>
     </div>
     <% end %>
   </div>
-
   <div id="map"
-     style="width: 55%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    style="width: 55%; height: 600px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-    
 </div>
+

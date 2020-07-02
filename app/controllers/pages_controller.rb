@@ -8,8 +8,8 @@ class PagesController < ApplicationController
   end
 
   def search_result
-    @venues = Venue.where("name ILIKE ?", params[:search][:name])
-    @venues = Venue.geocoded # returns flats with coordinates
+    @venues = Venue.search_by_name_and_description(params[:search][:name])
+    # @venues = Venue.geocoded # returns flats with coordinates
     @markers = @venues.map do |venue|
       {
         lat: venue.latitude,
@@ -17,6 +17,7 @@ class PagesController < ApplicationController
       }
     end
   end
+  
 
   def account
     @user = User.find(current_user.id)
