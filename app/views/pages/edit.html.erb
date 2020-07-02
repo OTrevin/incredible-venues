@@ -1,13 +1,9 @@
-<div class="container mt-3 col-lg-4 ">
-  <h1><%= @venue.name %></h1>
-  <p><%= @venue.address %></p>
-  <h4>Price per day: $<%= @venue.price_per_day %></h1>
-</div>
+
 
 <div class="container col-lg-4 mb-5 mt-4">
-  <div class="venue_booking_form" id='venue-booking-dates' data-unavailable="<%= @venue.unavailable_dates.to_json %>">
+  <div class="venue_booking_form" id='venue-booking-dates' data-unavailable="<%= @venue.unavailable_dates_edit(current_user).to_json %>">
     <% if user_signed_in? == false || current_user.id != @venue.user_id  %>
-       <%= simple_form_for [@venue, @booking ]do |f| %>
+       <%= simple_form_for [@venue, @booking], method: :patch, url: venue_booking_path(@venue, @booking) do |f| %>
            <%= f.input :start_date, as: :string, type: :text %>
            <%= f.input :end_date, as: :string, type: :text %>
            <%= f.submit "Book", class: "btn btn-primary w-100" %>

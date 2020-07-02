@@ -1,0 +1,59 @@
+// Specific CSS for your home-page
+.account-bookings-listing {
+  border: 1px solid #f7f7f7;
+  border-radius: 20px;
+  background-color: white;
+  width: 370px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+
+  .product-image {
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+  }
+
+  h1 {
+    padding: 20px 10px 0 22px;
+    font-size: 19px;
+    font-weight: 800;
+  }
+  .venue-detials {
+    font-size: 12.5px;
+    padding: 0 0 0 22px;
+    font-weight: 500;
+  }
+
+  p {
+    margin-bottom: 10px;
+  }
+  .description p {
+    font-size: 14px;
+    opacity: 0.4;
+    padding: 0 25px 20px 22px;
+  }
+
+  .description h3 {
+    font-size: 20px;
+    padding: 0 25px 20px 22px;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+.edit-bar {
+  .edit-btn {
+    font-size: 13px;
+    padding: 4px 10px;
+    border: 1px solid $black;
+    border-radius: 10px;
+  }
+  .delete-btn {
+    font-size: 13px;
+    color: red;
+    padding: 4px 10px;
+    border: 1px solid red;
+    border-radius: 10px;
+  }
+}

@@ -31,4 +31,27 @@ class PagesController < ApplicationController
     @venu = Venue.new
   end
 
+
+  def edit
+    @booking = Booking.find(params[:id])
+    @venue = Venue.find(@booking.venue_id)
+    # raise
+  end
+
+  def update
+    raise
+    @booking = Booking.find(params[:id])
+    if @booking.update
+      redirect_to account_bookings_path
+    else
+      render "venues/show"
+    end
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to account_bookings_path
+  end
+
 end
