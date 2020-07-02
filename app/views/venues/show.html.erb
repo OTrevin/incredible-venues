@@ -1,18 +1,64 @@
 
 <div class="venue-title">
-  <h3><%= @venue.name %> | 5min from Tg pagar MRT </h3>
+  <h3><%= @venue.name %> | <%= @venue.description %> </h3>
 </div>
 
 <div class="main-fotos-container" >
-  <div class="first-foto">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" alt="">
+  <div class="first-foto rounded">
+   <%= cl_image_tag @venue.photos[0].key, crop: :fill, class: "product-image", data:{toggle: "modal", target:"#exampleModal" } %>
   </div>
 
   <div class="grid-fotos">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" alt="">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" alt="">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" alt="">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" alt="">
+    <% @venue.photos[1..-1].each do |photo| %>
+      <%= cl_image_tag photo.key, crop: :fill, class: "product-image", data:{toggle: "modal", target:"#exampleModal" }%>
+    <% end %>
+  </div>
+</div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Beautiful space</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <% slide = @venue.photos.count %>
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+              </ol>
+            <div class="carousel-inner">
+              <% @venue.photos.each do |photo| %>
+                <div class="carousel-item <%= 'active' if photo.id == @venue.photos[0].id %>">
+                  <%= cl_image_tag photo.key, crop: :fill%>
+                </div>
+              <% end %>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="container mt-3 col-lg-4 ">
+  <div class="row">
+    <h1><%= @venue.name %></h1>
+    <p><%= @venue.address %></p>
+    <h4>Price per day: $<%= @venue.price_per_day %></h4>
   </div>
 </div>
 
@@ -22,20 +68,4 @@
 <%= link_to 'Back', venues_path %>
 
 
-<div class="container mt-3 col-lg-4 ">
-  <h1><%= @venue.name %></h1>
-  <p><%= @venue.address %></p>
-  <h4>Price per day: $<%= @venue.price_per_day %></h1>
-</div>
 
-<div class="container col-lg-4 mb-5 mt-4">
-  <div class="venue_booking_form" id='venue-booking-dates' data-unavailable="<%= @venue.unavailable_dates.to_json %>">
-    <% if user_signed_in? == false || current_user.id != @venue.user_id  %>
-       <%= simple_form_for([@venue, @booking]) do |f| %>
-           <%= f.input :start_date, as: :string, type: :text %>
-           <%= f.input :end_date, as: :string, type: :text %>
-           <%= f.submit "Book", class: "btn btn-primary w-100" %>
-        <% end %>
-    <% end %>
-  </div>
-</div>

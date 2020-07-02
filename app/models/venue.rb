@@ -23,5 +23,4 @@ class Venue < ApplicationRecord
       { from: range[0] + 200, to: range[1] }
     end
   end
-
 end
