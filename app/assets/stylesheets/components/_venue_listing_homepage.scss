@@ -7,7 +7,7 @@
 
 .venue-card {
   display: flex;
-  padding: 0 6px;
+  padding-left: 9px;
 
   h1 {
     padding: 20px 10px 0 22px;
@@ -24,10 +24,23 @@
     padding: 0 10px 0 22px;
     margin-bottom: 10px;
   }
+
+  h4 {
+    font-size: 14px;
+    padding: 0 10px 0 22px;
+  }
+
+  h3 {
+    padding: 0 10px 0 22px;
+  }
   .description p {
     font-size: 14px;
     opacity: 0.4;
     padding: 0 25px 20px 22px;
+  }
+
+  .description h6 {
+    font-size: 12px;
   }
   a {
     text-decoration: none;
@@ -40,6 +53,7 @@
     background-color: white;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
   }
+
 }
 
 .venue-section{

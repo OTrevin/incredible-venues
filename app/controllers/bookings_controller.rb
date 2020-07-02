@@ -12,6 +12,7 @@ class BookingsController < ApplicationController
     else
       render "venue/show"
     end
+  end
 
     def update
       @booking = Booking.find(params[:id])
@@ -35,7 +36,13 @@ class BookingsController < ApplicationController
     #   @booking.destroy
     #   redirect_to account_bookings_path
     # end
-  end
+    def update_status
+      @booking = Booking.find(params[:id])
+      @booking.status = true
+      if @booking.save
+        redirect_to  account_my_listings_path
+      end
+    end
 
   private
 

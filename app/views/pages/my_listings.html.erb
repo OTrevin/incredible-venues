@@ -23,7 +23,61 @@
               <div class="description">
                 <p><%= venue.description[0..100] %>...</p>
               </div>
+              <div class="edit-bar d-flex mt-4 mb-5 ml-3">
+                <h6><%= link_to "Edit", edit_venue_path(venue), class: "edit-btn mr-3" %></h6>
+                <h6><%= link_to "Delete", venue_path(venue), method: :delete, data: {confirm: "Don't regret"}, class: "delete-btn" %></h6>
+            </div>
           </div>
       </div>
   <% end %>
 </div>
+</div>
+<div class="container my-listing-section">
+  <div class="row">
+    <% @bookings.each do |booking| %>
+    <div class="venue-card mt-3 ">
+      <div class="details" >
+        <% venue = Venue.find(booking.venue_id) %>
+          <% venue.photos.each do |photo| %>
+           <%= cl_image_tag photo.key, width: 370, height:200, crop: :fill, class: "product-image" %>
+          <% end %>
+          <h1><%= link_to venue.name, venue_path(venue) %></h1>
+            <div class="venue-detials d-flex">
+                <p><%= venue.address %>&nbsp;&nbsp;</p>
+                <div class="numbers d-flex">
+                </div>
+              </div>
+              <div class="description">
+                <h4>Who book your venue: <strong><%= User.find(booking.user_id).first_name %> <%= User.find(booking.user_id).last_name %></strong> </h4>
+                <p><%= booking.start_date %> to <%= booking.end_date %></p>
+                <div class="price d-flex align-items-start">
+                  <h3>$<%= booking.total_price %></h3>
+                  <% days =  booking.end_date -  booking.start_date %>
+                  <% if days.to_i > 1 %>
+                    <h6>/ <%= days.to_i %> days</h6>
+                    <% else %>
+                    <h6>/ <%= days.to_i %> day</h6>
+                  <% end %>
+                </div>
+              </div>
+              <div class="edit-bar d-flex mt-4 mb-5 justify-content-between m-3">
+              <div class="left d-flex">
+                <% if booking.status == false %>
+                  <h6><%= link_to "Approve", update_booking_status_path(booking),method: :patch, class: "edit-btn mr-3" %></h6>
+                <% else %>
+                  <h6 class="approve-btn">You Approved</h6>
+                <% end %>
+              </div>
+              <div class="right d-flex mr-3">
+                <% if booking.status == false %>
+                <h6><%= link_to "Delete", delete_booking_path(booking), method: :delete, data: {confirm: "Don't regret"}, class: "delete-btn" %></h6>
+                <% end %>
+              </div>
+            </div>
+          </div>
+      </div>
+  <% end %>
+</div>
+</div>
+
+
