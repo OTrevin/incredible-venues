@@ -1,63 +1,58 @@
-<div class = "search-result-title">
-  <P> 15 venues available from 12/31/19 to 01/02/20 </p>
+<div class="container mt-5">
+    <div id='venue-booking-dates'>
+      <%= simple_form_for :search, url: s_path, method: "GET", html: { class: '' } do |f| %>
+      <div class="search_bar d-flex  align-items-center input_area text-align-center pr-2">
+        <div class="name flex-grow-1">
+          <%= f.input :name, input_html: {value: ""}, :placeholder => "   Location" , :label => false, input_html: { class: 'name_input mt-3' } %>
+        </div>
+        <%= f.input :start_date, as: :string, type: :text, :placeholder => "Check in" , :label => false, input_html: { class: 'date_input mt-3' } %>
+        <%= f.input :end_date, as: :string, type: :text, :placeholder => "Check out" , :label => false, input_html: { class: 'date_input mt-3' }  %>
+        <%= f.submit "Search", class: "search_bar_btn ml-3" %>
+      </div>
+      <% end %>
+    </div>
 </div>
 
-<!--<<h1>Stays in <%= @query %></h1>> -->
-<div class ="container">
-  <div class ="row">
-    <div class ="col-lg-6">
-      <a class ="btn btn-ghost-secondary" href ="#">Price</a>
-      <a class ="btn btn-ghost-secondary" href ="#">Nice Amenities</a>
-      <a class ="btn btn-ghost-secondary" href ="#">Half day avilable</a>
-      <a class ="btn btn-ghost-secondary" href ="#">Cancellation Flexibility</a>
-    </div>
+<div class = "title-container">
+  <div class = "search-result-title">
+    <P> From <%= params[:search][:start_date] %> to <%= params[:search][:end_date] %> </p>
+    <h3>15 Venues available in <strong><%= params[:search][:name] %></strong><h3>
   </div>
-  
-  <div class = "venue-product">
+  <div class ="buttons">
+    <a class ="btn btn-secondary" href ="#">Price</a>
+    <a class ="btn btn-secondary" href ="#">Amenities</a>
+    <a class ="btn btn-secondary" href ="#">Half day avilable</a>
+  </div>
+</div>
+
+<div class ="container">
+  <div class="card mb-3">
     <% @venues.each do |venue| %>
-
-    <div class = "venue-image">
-      <img src = "https://media.timeout.com/images/103752936/630/472/image.jpg" width = "300", height = "300">
-    </div>
-
-    <%# <div class ="venue-super">
-      <p>SUPERVENUE</p>
-    </div> %>
-
-    <div class ="venue-card-infos">
-      <div class ="venue-card-description">
-        <p> <%= venue.description %></p>
+    <div class="row no-gutters">
+      <div class="venue-image">
+        <img src="https://media.timeout.com/images/103752936/630/472/image.jpg" class="card-img" alt="...">
       </div>
-
-      <div class ="venue-card-heart">
-        <i class="fa fa-heart-o" aria-hidden="true" style="font-size:50px;"></i>
-      </div>
-
-      <div class ="venue-card-name">
-        <h3><%= venue.name %></h3>
-      </div>
-
-      <div class ="venue-card-amenities">
-        <p>1 guest · Studio · 1 bed · 1 shared bathroom
-        </p>
-      </div>
-
-      <div class ="venue-card-rating">
-        <p><i class="fa fa-star" aria-hidden="true" color="$red"></i><strong>4.89</strong>(46)</p>
-      </div>
-
-      <div class ="venue-card-capacity">
-        <p><%= venue.capacity %> PAX</p>
-      </div>
-
-      <div class ="venue-card-price">
-        <h3><strong>$<%= venue.price_per_day %> per day</strong></h3>
-      </div>
-
-      <div class ="venue-card-price-total">
-        <p><u>$ </u></p>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h3 class="venue-card-name"><%= venue.name %></h5>
+          <div class ="venue-card-infos">
+            <p class="venue-card-description"><%= venue.description %></p>
+            <i class="fa fa-heart-o" aria-hidden="true" style="font-size:50px;"></i>
+            <p class="venue-card-amenities">1 guest · Studio · 1 bed · 1 shared bathroom</p>          
+            <p class="venue-card-rating"><i class="fa fa-star" aria-hidden="true" color="$red"></i>
+            <strong>4.89</strong>(46)</p>
+            <p class="venue-card-capacity"><%= venue.capacity %> PAX</p>
+            <h3 class="venue-card-price"><strong>$<%= venue.price_per_day %> per day</strong></h3>
+        </div>
       </div>
     </div>
     <% end %>
-</div>
+  </div>
 
+  <div id="map"
+     style="width: 55%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+    
+</div>

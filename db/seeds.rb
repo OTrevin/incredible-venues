@@ -6,8 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-puts "Creating Users"
+Venue.destroy_all
+
 User.destroy_all
+
+puts "Creating Users"
 
 10.times do
     User.create!(
@@ -19,7 +22,6 @@ User.destroy_all
 end
 
 puts "Creating Venues"
-Venue.destroy_all
 
 9.times do
   Venue.create!(
@@ -28,7 +30,14 @@ Venue.destroy_all
     description: Faker::Lorem.sentences(number: 1),
     capacity: rand(10..100),
     price_per_day: Faker::Commerce.price,
-    user_id: User.all.ids.sample)
+    user_id: User.all.ids.sample,
+    latitude: Faker::Address.latitude,
+    longitude: Faker::Address.longitude)
 end
 
+puts "Creating Amenities"
+  Venue_amenity.create!(name: "wifi")
+  Venue_amenity.create!(name: "airconditioning")
+  Venue_amenity.create!(name: "kitchen")
+  
 puts "Done"
