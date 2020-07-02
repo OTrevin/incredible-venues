@@ -12,32 +12,28 @@ User.destroy_all
 
 puts "Creating Users"
 
-10.times do
-    User.create!(
-    first_name: Faker::Name.first_name,
-    email: Faker::Internet.email,
-    password: Faker::Internet.password(min_length: 8),
-    last_name: Faker::Name.last_name
+User.create!(
+    first_name: "John",
+    email: "john@gmail.com",
+    password: 123456,
+    last_name: "Faker"
     )
-end
 
 puts "Creating Venues"
 
-9.times do
-  Venue.create!(
-    name: Faker::Restaurant.name,
-    address: Faker::Address.full_address,
-    description: Faker::Lorem.sentences(number: 1),
-    capacity: rand(10..100),
-    price_per_day: Faker::Commerce.price,
-    user_id: User.all.ids.sample,
-    latitude: Faker::Address.latitude,
-    longitude: Faker::Address.longitude)
-end
+Venue.create!(
+  name: "The Float@Marina Bay",
+  address: "20 Raffles Ave. Singapore 039805",
+  description: "Great place in marina bay Singapore",
+  capacity: 9000,
+  price_per_day: 9000,
+  user_id: User.all.ids.sample
+
+)
 
 puts "Creating Amenities"
-  Venue_amenity.create!(name: "wifi")
-  Venue_amenity.create!(name: "airconditioning")
-  Venue_amenity.create!(name: "kitchen")
-  
+  Amenity.create!(name: "wifi")
+  Amenity.create!(name: "air_conditioning")
+  Amenity.create!(name: "kitchen")
+
 puts "Done"
