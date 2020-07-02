@@ -6,14 +6,20 @@
   </div>
 </div>
 
-  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+<!--   <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
     Button with data-target
   </button>
   <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample-2" aria-expanded="false" aria-controls="collapseExample">
     Button with data-target
-  </button>
+  </button> -->
+<div class="container">
+  <ul class="nav nav-t">
+    <li class="active"><a data-toggle="tab" href="#my_listing">My venue</a></li>
+    <li><a data-toggle="tab" href="#booking">Who book my venue</a></li>
+  </ul>
 
-<div class="container my-listing-section">
+<div class="tab-content">
+<div class="container my-listing-section tab-pane fade in active show" id="my_listing">
   <div class="row">
     <% @venues.each do |venue| %>
     <div class="venue-card mt-3 ">
@@ -39,7 +45,7 @@
   <% end %>
 </div>
 </div>
-<div class="container my-listing-section">
+<div class="container my-listing-section tab-pane fade" id="booking">
   <div class="row">
     <% @bookings.each do |booking| %>
     <div class="venue-card mt-3 ">
@@ -84,6 +90,8 @@
           </div>
       </div>
   <% end %>
+</div>
+</div>
 </div>
 </div>
 
