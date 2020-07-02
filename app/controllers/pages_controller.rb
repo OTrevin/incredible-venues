@@ -8,6 +8,7 @@ class PagesController < ApplicationController
   end
 
   def search_result
+    @user_input = params[:search][:name]
     @venues = Venue.search_by_name_and_description(params[:search][:name])
     # @venues = Venue.geocoded # returns flats with coordinates
     @markers = @venues.map do |venue|
@@ -17,7 +18,7 @@ class PagesController < ApplicationController
       }
     end
   end
-  
+
 
   def account
     @user = User.find(current_user.id)
