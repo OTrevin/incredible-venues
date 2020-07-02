@@ -25,13 +25,16 @@ import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.css";
 import { datePickr } from "../plugins/init_flatpickr.js";
 import { searchDatePickr } from "../plugins/search_flatpickr.js";
+import { initMapbox } from '../plugins/init_mapbox';
+import 'mapbox-gl/dist/mapbox-gl.css';
+
+document.addEventListener('turbolinks:load', () => {
+})
+initMapbox();
 
 // Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
-// document.addEventListener("turbolinks:load", () => {
-//   datePickr();
-//   // Call your functions here, e.g:
-//   // initSelect2();
-// });
+document.addEventListener("turbolinks:load", () => {
+  datePickr();
+});
 searchDatePickr();
 datePickr();
