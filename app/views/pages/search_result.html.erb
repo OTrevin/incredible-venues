@@ -13,19 +13,12 @@
     </div>
 </div>
 <div class="container">
-  <div class = "title-container">
+  <div class = "title-container my-5">
     <div class = "search-result-title">
-      <P> From <%= params[:search][:start_date] %> to <%= params[:search][:end_date] %> </p>
-      <h3> <%= @venues.length %> Venues available in <strong><%= params[:search][:name] %></strong><h3>
-    </div>
-    <div class ="buttons">
-      <a class ="btn btn-secondary" href ="#">Price</a>
-      <a class ="btn btn-secondary" href ="#">Amenities</a>
-      <a class ="btn btn-secondary" href ="#">Half day avilable</a>
+      <h3> <%= @venues.length %> Venues available for <strong><%= params[:search][:name] %></strong><h3>
     </div>
   </div>
 </div>
-
 <div class="container-fluid pr-0">
   <div class="row">
     <div class="col-md-8 ">
@@ -61,6 +54,9 @@
                   </div>
                 </div>
                 <div class="description">
+                  <p>Amenities: <% venue.amenities.each do |amenity|%>
+                  <%= amenity.name %> 
+                  <% end %></p>
                   <p><%= venue.description[0..100] %>...</p>
                 </div>
               </div>
