@@ -47,7 +47,7 @@
                     <span class="sr-only">Next</span>
                   </a>
                 </div>
-                <h1><%= link_to venue.name, venue_path(venue) %></h1>
+                <h1><%= link_to venue.name, venue_path(venue, search: { start_date: params[:search][:start_date],end_date: params[:search][:end_date]}) %></h1>
                 <div class="venue-detials d-flex">
                   <p><%= venue.address %>&nbsp;&nbsp;</p>
                   <div class="numbers d-flex">
@@ -55,7 +55,7 @@
                 </div>
                 <div class="description">
                   <p>Amenities: <% venue.amenities.each do |amenity|%>
-                  <%= amenity.name %> 
+                  <%= amenity.name %>
                   <% end %></p>
                   <p><%= venue.description[0..100] %>...</p>
                 </div>
