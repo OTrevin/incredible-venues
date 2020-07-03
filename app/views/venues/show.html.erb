@@ -61,6 +61,9 @@
         <h1><%= @venue.name %></h1>
         <p><%= @venue.address %></p>
         <h4>Price per day: $<%= @venue.price_per_day %></h4>
+        <% @venue.amenities.each do |amenity|%>
+         <p><%= amenity.name %>,</p> 
+        <% end %>
     </div>
     <div class="container col-lg-4 mb-5 mt-4">
       <div class="venue_booking_form" id='venue-booking-dates' data-unavailable="<%= @venue.unavailable_dates.to_json %>">

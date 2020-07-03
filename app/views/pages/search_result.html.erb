@@ -26,30 +26,29 @@
   </div>
 </div>
 
-<div class="container mt-5">
-
-  <div class = "container-search">
-    <div class="card mb-3">
-      <% @venues.each do |venue| %>
-      <div class="row no-gutters">
-        <div class="col-md-4">
-          <% venue.photos.each do |photo| %>
-            <%= cl_image_tag photo.key, width: 370, height:200, crop: :fill, class: "product-image" %>
-          <% end %>
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h3 class="venue-card-name"><%= link_to venue.name, venue_path(venue, search: {start_date: params[:search][:start_date], end_date: params[:search][:end_date] }) %></h3>
-              <div class ="venue-card-infos">
-                <p class="venue-card-description"><%= venue.description %></p>
-                <i class="fa fa-heart-o" aria-hidden="true" style="font-size:50px;"></i>
-                <p class="venue-card-amenities">1 guest · Studio · 1 bed · 1 shared bathroom</p>
-                <p class="venue-card-rating"><i class="fa fa-star" aria-hidden="true" color="$red"></i>
-                <strong>4.89</strong>(46)</p>
-                <p class="venue-card-capacity"><%= venue.capacity %> PAX</p>
-                <h3 class="venue-card-price"><strong>$<%= venue.price_per_day %> per day</strong></h3>
-              </div>
-          </div>
+<div class = "container-search">
+  <div class="card mb-3">
+    <% @venues.each do |venue| %>
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <% venue.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, width: 370, height:200, crop: :fill, class: "product-image" %>
+        <% end %>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h3 class="venue-card-name"><%= venue.name %></h3>
+            <div class ="venue-card-infos">
+              <p class="venue-card-description"><%= venue.description %></p>
+              <i class="fa fa-heart-o" aria-hidden="true" style="font-size:50px;"></i>
+              <p class="venue-card-rating"><i class="fa fa-star" aria-hidden="true" color="$red"></i>
+              <strong>4.89</strong>(46)</p>
+              <p><% @venue.amenities.each do |amenity|%>
+                <%= amenity.name %>, 
+              <% end %></p>
+              <p class="venue-card-capacity"><%= venue.capacity %> PAX</p>
+              <h3 class="venue-card-price"><strong>$<%= venue.price_per_day %> per day</strong></h3>
+            </div>
         </div>
       </div>
       <% end %>

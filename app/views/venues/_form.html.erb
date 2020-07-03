@@ -9,6 +9,7 @@
       <%= f.input :description %>
       <%= f.input :price_per_day, numericality: {only_integer: true} %>
       <%= f.input :capacity, numericality: {only_integer: true} %>
+      <%= f.association :amenities, input_html: { multiple: true, class: 'multiple-select' }, include_hidden: false %>
       <%= f.input :photos, as: :file, input_html: {multiple: true} %>
     </div>
     <div class="form-actions">
