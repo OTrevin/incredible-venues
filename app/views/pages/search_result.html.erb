@@ -39,9 +39,6 @@
             <div class ="venue-card-infos">
               <p class="venue-card-description"><%= venue.description %></p>
               <i class="fa fa-heart-o" aria-hidden="true" style="font-size:50px;"></i>
-              <p><% @venue.amenities.each do |amenity|%>
-                <%= amenity.name %>, 
-              <% end %></p>
               <p class="venue-card-rating"><i class="fa fa-star" aria-hidden="true" color="$red"></i>
               <strong>4.89</strong>(46)</p>
               <p class="venue-card-amenity"><%= venue.amenities %></p>
