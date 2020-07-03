@@ -43,24 +43,29 @@
 
 @media only screen and (min-width: 1200px) and (max-width: 1500px) {
   .nav_bar_padding {
-    padding: 40px 48px 0 48px;
+    padding: 40px 78px 0 78px;
+  }
+}
+@media only screen and (min-width: 1501px) and (max-width: 1699px) {
+  .nav_bar_padding {
+    padding: 40px 128px 0 128px;
   }
 }
 
-@media only screen and (min-width: 1501px) {
+@media only screen and (min-width: 1451px) and (max-width: 1700px) {
   .nav_bar_padding {
-    padding: 40px 158px 0 158px;
+    padding: 40px 128px 0 128px;
   }
 }
 
 @media only screen and (min-width: 1701px) {
   .nav_bar_padding {
-    padding: 40px 88px 0 88px;
+    padding: 40px 53px 0 53px;
   }
 }
 
-@media only screen and (min-width: 1801px) {
-  .nav_bar_padding {
-    padding: 40px 150px 0 150px;
-  }
-}
+// @media only screen and (min-width: 1801px) {
+//   .nav_bar_padding {
+//     padding: 40px 150px 0 150px;
+//   }
+// }
