@@ -13,10 +13,9 @@
     </div>
 </div>
 <div class="container">
-  <div class = "title-container">
+  <div class = "title-container my-5">
     <div class = "search-result-title">
-      <P> From <%= params[:search][:start_date] %> to <%= params[:search][:end_date] %> </p>
-      <h3> <%= @venues.length %> Venues available in <strong><%= params[:search][:name] %></strong><h3>
+      <h3> <%= @venues.length %> Venues available for <strong><%= params[:search][:name] %></strong><h3>
     </div>
   </div>
 </div>
@@ -28,8 +27,8 @@
           <h3 class="venue-card-name"><%= venue.name %></h3>
             <div class ="venue-card-infos">
               <p class="venue-card-description"><%= venue.description %></p>
-              <p><% venue.amenities.each do |amenity|%>
-                <%= amenity.name %>| 
+              <p>Amenities: <% venue.amenities.each do |amenity|%>
+                <%= amenity.name %> 
               <% end %></p>
               <p class="venue-card-capacity"><%= venue.capacity %> PAX</p>
               <h3 class="venue-card-price"><strong>$<%= venue.price_per_day %> per day</strong></h3>
