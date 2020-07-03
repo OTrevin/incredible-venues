@@ -1,0 +1,80 @@
+.account_header {
+  h1 {
+    font-weight: 600;
+    font-size: 50px;
+  }
+}
+
+.booking-card {
+  display: flex;
+  padding-left: 9px;
+
+  h1 {
+    padding: 20px 10px 0 22px;
+    font-size: 22px;
+    font-weight: 700;
+  }
+  .flat-detials {
+    font-size: 12.5px;
+    padding: 0 0 0 22px;
+    font-weight: 500;
+  }
+
+  p {
+    padding: 0 10px 0 22px;
+    margin-bottom: 10px;
+  }
+  .description p {
+    font-size: 14px;
+    opacity: 0.4;
+    padding: 0 25px 20px 22px;
+  }
+  .description h6 {
+    font-size: 12px;
+  }
+
+  h3 {
+    // margin-bottom: -10px;
+    padding: 0 10px 0 22px;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  .details {
+    border: 1px solid #f7f7f7;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  }
+}
+
+.venue-section{
+  padding-top: 30px;
+}
+
+
+.edit-bar {
+  .edit-btn {
+    font-size: 13px;
+    padding: 4px 10px;
+    border: 1px solid $black;
+    border-radius: 10px;
+  }
+  .delete-btn {
+    font-size: 13px;
+    color: red;
+    padding: 4px 10px;
+    border: 1px solid red;
+    border-radius: 10px;
+  }
+  .approve-btn {
+    font-size: 13px;
+    padding: 4px 10px;
+    color: #1fd16c;
+    border: 1px solid #1fd16c;
+    border-radius: 10px;
+  }
+}

@@ -1,0 +1,18 @@
+.my-listing-section {
+  padding-top: 10px;
+}
+
+.nav-t {
+  a {
+    margin-right: 15px;
+    font-size: 14px;
+    padding: 4px 10px;
+    border: 1px solid $black;
+    border-radius: 10px;
+    text-decoration: none;
+  }
+  a:hover {
+    background-color: $black;
+    color: white;
+  }
+}

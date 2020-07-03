@@ -12,14 +12,21 @@ const datePickr = () => {
     const unavailableDates = JSON.parse(
       document.querySelector("#venue-booking-dates").dataset.unavailable
     );
-    endDateInput.disabled = true;
-
+    // if (!(/account\/bookings\/\d+\/edit/).test(window.location.href)) {
+    //   endDateInput.disabled = true;
+    // }
+    console.log(unavailableDates)
     flatpickr(startDateInput, {
       minDate: "today",
       disable: unavailableDates,
       dateFormat: "Y-m-d",
     });
 
+    flatpickr(endDateInput, {
+        minDate: "today",
+        disable: unavailableDates,
+        dateFormat: "Y-m-d",
+      });
     // console.log("im in the file");
 
     startDateInput.addEventListener("change", (e) => {

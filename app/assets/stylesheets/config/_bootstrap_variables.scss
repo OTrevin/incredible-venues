@@ -5,8 +5,8 @@
 
 // General style
 
-$font-family-sans-serif:  $body-font;
-$headings-font-family:    $headers-font;
+$font-family-sans-serif: $body-font;
+$headings-font-family: $headers-font;
 $font-family-sans-serif: $body-font;
 $headings-font-family: $headers-font;
 $body-bg: $white;
@@ -32,5 +32,11 @@ $border-radius-sm: 2px;
 $container-max-widths: (
   md: 720px,
   lg: 960px,
-  xl: 1650px
+  xl: 1650px,
 );
+
+@media only screen and (min-width: 1200px) and (max-width: 1700px) {
+  .container {
+    max-width: 1300px !important;
+  }
+}
