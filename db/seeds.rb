@@ -5,9 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require "open-uri"
 
+VenueAmenity.destroy_all
+Amenity.destroy_all
 Venue.destroy_all
-
 User.destroy_all
 
 puts "Creating Users"
@@ -16,20 +18,102 @@ User.create!(
     first_name: "John",
     email: "john@gmail.com",
     password: 123456,
-    last_name: "Faker"
+    last_name: "Magic"
+    )
+
+User.create!(
+    first_name: "Chris",
+    email: "chris@gmail.com",
+    password: 123456,
+    last_name: "Expert"
     )
 
 puts "Creating Venues"
 
 Venue.create!(
+  name: "The Woods",
+  address: "214 South Bridge Rd, Singapore 058763",
+  description: "Event place, Meeting Room, Studio, Unique",
+  capacity: 20,
+  price_per_day: 550,
+  user_id: User.all.ids.sample
+)
+
+Venue.create!(
   name: "The Float@Marina Bay",
   address: "20 Raffles Ave. Singapore 039805",
   description: "Great place in marina bay Singapore",
-  capacity: 9000,
-  price_per_day: 9000,
+  capacity: 500,
+  price_per_day: 1000,
   user_id: User.all.ids.sample
-
 )
+
+
+Venue.create!(
+  name: "Cloud9 Events",
+  address: "200 South Bridge Rd, Singapore 058763",
+  description: "Event Space, Function Hall, Kids & Recreational, Meeting Room, Studio, Training Room, Unique Venue, Warehouse",
+  capacity: 100,
+  price_per_day: 400,
+  user_id: User.all.ids.sample
+)
+
+Venue.create!(
+  name: "Three Degree Cafe",
+  address: "11 Slim Barracks Rise, Singapore 138664",
+  description: "Cafe, Event Space, Halal Venue",
+  capacity: 100,
+  price_per_day: 400,
+  user_id: User.all.ids.sample
+)
+
+Venue.create!(
+  name: "Cloud9 Events",
+  address: "65 Ubi Rd 1, Singapore 408729",
+  description: "Event Space, Function Hall, Kids & Recreational, Meeting Room",
+  capacity: 50,
+  price_per_day: 350,
+  user_id: User.all.ids.sample
+)
+
+Venue.create!(
+  name: "Here.SG",
+  address: "65 Ubi Rd 1, Singapore 408729",
+  description: "Event Space, Function Hall, Kids & Recreational, Meeting Room",
+  capacity: 50,
+  price_per_day: 350,
+  user_id: User.all.ids.sample
+)
+
+Venue.create!(
+  name: "Party time baby",
+  address: "400 Orchard Rd, Singapore 238875",
+  description: "Meeting Room, Karaoke, massage",
+  capacity: 100,
+  price_per_day: 550,
+  user_id: User.all.ids.sample
+)
+
+Venue.create!(
+  name: "Heroes",
+  address: "200 Middle Rd, Singapore 188980",
+  description: "Bar, Cafe, Event Space, Function Hall",
+  capacity: 20,
+  price_per_day: 250,
+  user_id: User.all.ids.sample
+)
+
+puts "Attaching pictures..."
+
+Venue.all.each do |venue|
+  names = ["amara-", "royal-", "tonito-"]
+  house = names.sample
+    for i in (1..5) do
+      name = "#{house}#{i}.jpg"
+      file = File.open(File.join(__dir__,"./seed_picture/#{name}"))
+      venue.photos.attach(io: file, filename: name, content_type: 'image/jpg')
+    end
+end
 
 puts "Creating Amenities"
   Amenity.create!(name: "wifi")
