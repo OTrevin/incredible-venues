@@ -4,15 +4,7 @@
 </div>
 
 <div class="main-fotos-container" >
-  <div class="first-foto rounded">
-   <%= cl_image_tag @venue.photos[0].key, crop: :fill, class: "product-image", data:{toggle: "modal", target:"#exampleModal" } %>
-  </div>
 
-  <div class="grid-fotos">
-    <% @venue.photos[1..-1].each do |photo| %>
-      <%= cl_image_tag photo.key, crop: :fill, class: "product-image", data:{toggle: "modal", target:"#exampleModal" }%>
-    <% end %>
-  </div>
 </div>
 
   <!-- Modal -->
@@ -34,11 +26,7 @@
                 <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
               </ol>
             <div class="carousel-inner">
-              <% @venue.photos.each do |photo| %>
-                <div class="carousel-item <%= 'active' if photo.id == @venue.photos[0].id %>">
-                  <%= cl_image_tag photo.key, crop: :fill%>
-                </div>
-              <% end %>
+  
               </div>
               <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
