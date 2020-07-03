@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container mt-3">
     <div id='venue-booking-dates'>
       <%= simple_form_for :search, url: s_path, method: "GET", html: { class: '' } do |f| %>
       <div class="search_bar d-flex  align-items-center input_area text-align-center pr-2">
@@ -12,53 +12,35 @@
       <% end %>
     </div>
 </div>
-<div class="container">
-  <div class = "title-container">
-    <div class = "search-result-title">
-      <P> From <%= params[:search][:start_date] %> to <%= params[:search][:end_date] %> </p>
-      <h3> <%= @venues.length %> Venues available in <strong><%= params[:search][:name] %></strong><h3>
-    </div>
-    <div class ="buttons">
-      <a class ="btn btn-secondary" href ="#">Price</a>
-      <a class ="btn btn-secondary" href ="#">Amenities</a>
-      <a class ="btn btn-secondary" href ="#">Half day avilable</a>
-    </div>
+<div class="container mt-4">
+  <div class = "search-result-title">
+    <h3> <%= @venues.length %> Venues available for "<strong><%= params[:search][:name] %></strong>"<h3>
   </div>
 </div>
 
 <div class="container mt-5">
-
-  <div class = "container-search">
-    <div class="card mb-3">
+  <div class="container-search">
+    <div class="venue-card-product" style="width: 800px">
       <% @venues.each do |venue| %>
-      <div class="row no-gutters">
-        <div class="col-md-4">
-          <% venue.photos.each do |photo| %>
-            <%= cl_image_tag photo.key, width: 370, height:200, crop: :fill, class: "product-image" %>
-          <% end %>
+        <% venue.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, width: 370, height:200, crop: :fill, class: "venue-product-image" %>
+        <% end %>
+        <div class ="venue-card-infos">
+          <h3 class="venue-card-name"><%= link_to venue.name, venue_path(venue) %></h3>
+          <p class="venue-card-description"><%= venue.description %></p>
+          <p class="venue-card-amenities"><% @venue.amenities.each do |amenity|%>
+            <%= amenity.name %> | 
+            <% end %></p>
+          <p class="venue-card-capacity"><%= venue.capacity %> PAX</p>
+          <h3 class="venue-card-price"><strong>$<%= venue.price_per_day %> per day</strong></h3>
         </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h3 class="venue-card-name"><%= link_to venue.name, venue_path(venue, search: {start_date: params[:search][:start_date], end_date: params[:search][:end_date] }) %></h3>
-              <div class ="venue-card-infos">
-                <p class="venue-card-description"><%= venue.description %></p>
-                <i class="fa fa-heart-o" aria-hidden="true" style="font-size:50px;"></i>
-                <p class="venue-card-amenities">1 guest · Studio · 1 bed · 1 shared bathroom</p>
-                <p class="venue-card-rating"><i class="fa fa-star" aria-hidden="true" color="$red"></i>
-                <strong>4.89</strong>(46)</p>
-                <p class="venue-card-capacity"><%= venue.capacity %> PAX</p>
-                <h3 class="venue-card-price"><strong>$<%= venue.price_per_day %> per day</strong></h3>
-              </div>
-          </div>
-        </div>
-      </div>
       <% end %>
     </div>
+
     <div id="map"
-      style="width: 55%; height: 600px;"
+      style="width: 100%; height: 600px;"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
 </div>
-
