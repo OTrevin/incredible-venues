@@ -9,7 +9,7 @@ class PagesController < ApplicationController
 
   def search_result
     @user_input = params[:search][:name]
-    @venues = Venue.search_by_name_and_description(params[:search][:name])
+    @venues = Venue.geocoded.search_by_name_and_description(params[:search][:name])
     # @venues = Venue.geocoded # returns flats with coordinates
     @markers = @venues.map do |venue|
       {

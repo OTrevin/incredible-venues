@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>All venues</h1>
+<!-- <h1>All venues</h1>
 
 <table>
   <thead>
@@ -26,6 +26,50 @@
   </tbody>
 </table>
 
-<br>
+<br> -->
+
+<div class="container mt-3 venue-section">
+  <h2>All Venues</h2>
+  <div class="row">
+    <% @venues.reverse.each do |venue| %>
+    <div class="col-lg-3 col-md-4 col-sm-1">
+      <div class="venue-card mt-3 mr-3 w-100">
+        <div class="details w-100">
+          <div id="carouselExampleControls-<%= venue.id %>" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner w-100">
+                <div class="carousel-item active w-100">
+                  <%= cl_image_tag venue.photos[0].key, height:220, crop: :fill, class: "w-100" %>
+                </div>
+              <% venue.photos[1..-1].each do |photo| %>
+                <div class="carousel-item w-100">
+                  <%= cl_image_tag photo.key, height:220, crop: :fill, class: "w-100" %>
+                </div>
+              <% end %>
+            </div>
+              <a class="carousel-control-prev" href="#carouselExampleControls-<%= venue.id %>" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleControls-<%= venue.id %>" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+          </div>
+            <h1><%= link_to venue.name, venue_path(venue) %></h1>
+              <div class="venue-detials d-flex">
+                  <p><%= venue.address %>&nbsp;&nbsp;<br> <small>Capacity: <%= venue.capacity %></small></p>
+                  <div class="numbers d-flex">
+                  </div>
+                </div>
+                <div class="description">
+                  <p><%= venue.description[0..100] %>...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+  <% end %>
+</div>
+</div>
+
 
 
