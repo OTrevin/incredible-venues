@@ -12,15 +12,20 @@
       <% end %>
     </div>
 </div>
+
 <div class = "title-container">
   <div class = "search-result-title">
-    <P> From <%= params[:search][:start_date] %> to <%= params[:search][:end_date] %> </p>
-    <h3> <%= @venues.length %> Venues available in <strong><%= params[:search][:name] %></strong><h3>
+    <h3> <%= @venues.length %> Venues available for "<strong><%= params[:search][:name] %></strong>"<h3>
   </div>
-  <div class ="buttons">
-    <a class ="btn btn-secondary" href ="#">Price</a>
-    <a class ="btn btn-secondary" href ="#">Amenities</a>
-    <a class ="btn btn-secondary" href ="#">Half day avilable</a>
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Amenities
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" href="#">Wifi</a>
+      <a class="dropdown-item" href="#">Airconditioning</a>
+      <a class="dropdown-item" href="#">Kitchen</a>
+    </div>
   </div>
 </div>
 
@@ -29,19 +34,16 @@
     <% @venues.each do |venue| %>
     <div class="row no-gutters">
       <div class="col-md-4">
-        <% venue.photos.each do |photo| %>
-          <%= cl_image_tag photo.key, width: 370, height:200, crop: :fill, class: "product-image" %>
-        <% end %>
+        <div class="venue-image">
+          <img src="https://live.staticflickr.com/4100/4788144157_28c4721340_b.jpg">
+        </div>
       </div>
       <div class="col-md-8">
         <div class="card-body">
           <h3 class="venue-card-name"><%= venue.name %></h3>
             <div class ="venue-card-infos">
               <p class="venue-card-description"><%= venue.description %></p>
-              <i class="fa fa-heart-o" aria-hidden="true" style="font-size:50px;"></i>
               <p class="venue-card-amenities">1 guest · Studio · 1 bed · 1 shared bathroom</p>          
-              <p class="venue-card-rating"><i class="fa fa-star" aria-hidden="true" color="$red"></i>
-              <strong>4.89</strong>(46)</p>
               <p class="venue-card-capacity"><%= venue.capacity %> PAX</p>
               <h3 class="venue-card-price"><strong>$<%= venue.price_per_day %> per day</strong></h3>
             </div>
