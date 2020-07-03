@@ -3,24 +3,26 @@
       <%= simple_form_for :search, url: s_path, method: "GET", html: { class: '' } do |f| %>
       <div class="search_bar d-flex  align-items-center input_area text-align-center pr-2">
         <div class="name flex-grow-1">
-          <%= f.input :name, input_html: {value: ""}, :placeholder => "   Location" , :label => false, input_html: { class: 'name_input mt-3' } %>
+          <%= f.input :name, input_html: {value: params[:search][:name], class: 'name_input mt-3'}, :placeholder => "   Location" , :label => false %>
         </div>
-        <%= f.input :start_date, as: :string, type: :text, :placeholder => "Check in" , :label => false, input_html: { class: 'date_input mt-3' } %>
-        <%= f.input :end_date, as: :string, type: :text, :placeholder => "Check out" , :label => false, input_html: { class: 'date_input mt-3' }  %>
+        <%= f.input :start_date, as: :string, type: :text, :placeholder => "Check in" , :label => false, input_html: { value: params[:search][:start_date], class: 'date_input mt-3' } %>
+        <%= f.input :end_date, as: :string, type: :text, :placeholder => "Check out" , :label => false, input_html: { value: params[:search][:end_date], class: 'date_input mt-3' }  %>
         <%= f.submit "Search", class: "search_bar_btn ml-3" %>
       </div>
       <% end %>
     </div>
 </div>
-<div class = "title-container">
-  <div class = "search-result-title">
-    <P> From <%= params[:search][:start_date] %> to <%= params[:search][:end_date] %> </p>
-    <h3> <%= @venues.length %> Venues available in <strong><%= params[:search][:name] %></strong><h3>
-  </div>
-  <div class ="buttons">
-    <a class ="btn btn-secondary" href ="#">Price</a>
-    <a class ="btn btn-secondary" href ="#">Amenities</a>
-    <a class ="btn btn-secondary" href ="#">Half day avilable</a>
+<div class="container">
+  <div class = "title-container">
+    <div class = "search-result-title">
+      <P> From <%= params[:search][:start_date] %> to <%= params[:search][:end_date] %> </p>
+      <h3> <%= @venues.length %> Venues available in <strong><%= params[:search][:name] %></strong><h3>
+    </div>
+    <div class ="buttons">
+      <a class ="btn btn-secondary" href ="#">Price</a>
+      <a class ="btn btn-secondary" href ="#">Amenities</a>
+      <a class ="btn btn-secondary" href ="#">Half day avilable</a>
+    </div>
   </div>
 </div>
 
