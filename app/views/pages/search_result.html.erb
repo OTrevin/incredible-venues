@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container mt-3">
     <div id='venue-booking-dates'>
       <%= simple_form_for :search, url: s_path, method: "GET", html: { class: '' } do |f| %>
       <div class="search_bar d-flex  align-items-center input_area text-align-center pr-2">
@@ -12,50 +12,42 @@
       <% end %>
     </div>
 </div>
-
-<div class = "title-container">
+<div class="container mt-4">
   <div class = "search-result-title">
     <h3> <%= @venues.length %> Venues available for "<strong><%= params[:search][:name] %></strong>"<h3>
   </div>
   <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Amenities
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" href="#">Wifi</a>
-      <a class="dropdown-item" href="#">Airconditioning</a>
-      <a class="dropdown-item" href="#">Kitchen</a>
-    </div>
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Amenities
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <button class="dropdown-item" type="button">Wifi</button>
+    <button class="dropdown-item" type="button">Airconditioning</button>
+    <button class="dropdown-item" type="button">Kitchen</button>
   </div>
 </div>
 
-<div class ="container">
-  <div class="card mb-3">
-    <% @venues.each do |venue| %>
-    <div class="row no-gutters">
-      <div class="col-md-4">
-        <div class="venue-image">
-          <img src="https://live.staticflickr.com/4100/4788144157_28c4721340_b.jpg">
+<div class="container mt-5">
+  <div class="container-search">
+    <div class="venue-card-product" style="width: 800px">
+      <% @venues.each do |venue| %>
+        <% venue.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, width: 370, height:200, crop: :fill, class: "venue-product-image" %>
+        <% end %>
+        <div class ="venue-card-infos">
+          <h3 class="venue-card-name"><%= link_to venue.name, venue_path(venue) %></h3>
+          <p class="venue-card-description"><%= venue.description %></p>
+          <p class="venue-card-amenities">1 guest · Studio · 1 bed · 1 shared bathroom</p>
+          <p class="venue-card-capacity"><%= venue.capacity %> PAX</p>
+          <h3 class="venue-card-price"><strong>$<%= venue.price_per_day %> per day</strong></h3>
         </div>
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h3 class="venue-card-name"><%= venue.name %></h3>
-            <div class ="venue-card-infos">
-              <p class="venue-card-description"><%= venue.description %></p>
-              <p class="venue-card-amenities">1 guest · Studio · 1 bed · 1 shared bathroom</p>          
-              <p class="venue-card-capacity"><%= venue.capacity %> PAX</p>
-              <h3 class="venue-card-price"><strong>$<%= venue.price_per_day %> per day</strong></h3>
-            </div>
-        </div>
-      </div>
+      <% end %>
     </div>
-    <% end %>
-  </div>
-  <div id="map"
-    style="width: 55%; height: 600px;"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+
+    <div id="map"
+      style="width: 100%; height: 600px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
   </div>
 </div>
-
