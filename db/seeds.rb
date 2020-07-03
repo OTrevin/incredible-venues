@@ -7,8 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require "open-uri"
 
+VenueAmenity.destroy_all
+Amenity.destroy_all
 Venue.destroy_all
-
 User.destroy_all
 
 puts "Creating Users"
@@ -59,7 +60,7 @@ Venue.create!(
 
 Venue.create!(
   name: "Three Degree Cafe",
-  address: "11 Slim Barracks Rise, 03, Singapore 138664",
+  address: "11 Slim Barracks Rise, Singapore 138664",
   description: "Cafe, Event Space, Halal Venue",
   capacity: 100,
   price_per_day: 400,
@@ -68,7 +69,7 @@ Venue.create!(
 
 Venue.create!(
   name: "Cloud9 Events",
-  address: "65 Ubi Rd 1, #02-97, Singapore 408729",
+  address: "65 Ubi Rd 1, Singapore 408729",
   description: "Event Space, Function Hall, Kids & Recreational, Meeting Room",
   capacity: 50,
   price_per_day: 350,
@@ -77,7 +78,7 @@ Venue.create!(
 
 Venue.create!(
   name: "Here.SG",
-  address: "65 Ubi Rd 1, #02-97, Singapore 408729",
+  address: "65 Ubi Rd 1, Singapore 408729",
   description: "Event Space, Function Hall, Kids & Recreational, Meeting Room",
   capacity: 50,
   price_per_day: 350,
@@ -102,13 +103,17 @@ Venue.create!(
   user_id: User.all.ids.sample
 )
 
+puts "Attaching pictures..."
 
-
-# puts "Attaching pictures..."
-
-# file = URI.open('https://s3-production.venuerific.com/shrine/venuephotos/23681/into-the-woods-21st-birthday-party-venues-singapore-venuerific-large.jpg')
-# # venue = Venue.new(title: 'NES', body: "A great console")
-# Venue.photos.attach(io: file, filename: 'nes.png', content_type: 'image/jpg')
+Venue.all.each do |venue|
+  names = ["amara-", "royal-", "tonito-"]
+  house = names.sample
+    for i in (1..5) do
+      name = "#{house}#{i}.jpg"
+      file = File.open(File.join(__dir__,"./seed_picture/#{name}"))
+      venue.photos.attach(io: file, filename: name, content_type: 'image/jpg')
+    end
+end
 
 puts "Creating Amenities"
   Amenity.create!(name: "wifi")
