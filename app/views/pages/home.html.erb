@@ -18,11 +18,17 @@
   <h2>Venues listing</h2>
   <div class="row">
     <% @venues.each do |venue| %>
-    <div class="venue-card mt-3 col-lg-3">
+    <div class="venue-card mt-3 mr-3">
       <div class="details" >
-          <% venue.photos.each do |photo| %>
-           <%= cl_image_tag photo.key, width: 370, height:200, crop: :fill, class: "product-image" %>
-          <% end %>
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <% venue.photos.each do |photo| %>
+            <div class="carousel-item">
+              <%= cl_image_tag photo.key, width: 370, height:200, crop: :fill, class: "product-image" %>
+             </div>
+            <% end %>
+          </div>
+        </div>
           <h1><%= link_to venue.name, venue_path(venue) %></h1>
             <div class="venue-detials d-flex">
                 <p><%= venue.address %>&nbsp;&nbsp;</p>
