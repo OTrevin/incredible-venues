@@ -55,34 +55,32 @@
       </div>
     </div>
 </div>
-
 <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-12 col-lg-8">
-      <h1><%= @venue.name %></h1>
-      <h3><%= @venue.description %></h3>
-      <p><%= @venue.address %></p>
-      <p>Price per day: $<%= @venue.price_per_day %></p>
+  <div class="row">
+    <div class="container mt-3 col-lg-4 ">
+        <h1><%= @venue.name %></h1>
+        <p><%= @venue.address %></p>
+        <h4>Price per day: $<%= @venue.price_per_day %></h4>
     </div>
-    <div class="col-12 col-lg-4">
+    <div class="container col-lg-4 mb-5 mt-4">
       <div class="venue_booking_form" id='venue-booking-dates' data-unavailable="<%= @venue.unavailable_dates.to_json %>">
         <% if user_signed_in? == false || current_user.id != @venue.user_id  %>
            <%= simple_form_for([@venue, @booking]) do |f| %>
-               <%= f.input :start_date, as: :string, type: :text %>
-               <%= f.input :end_date, as: :string, type: :text %>
+               <%= f.input :start_date, as: :string, type: :text, input_html: { value: params[:search].try(:[], :start_date) ? params[:search][:start_date] : "" } %>
+               <%= f.input :end_date, as: :string, type: :text, input_html: { value: params[:search].try(:[], :end_date) ? params[:search][:end_date] : ""} %>
                <%= f.submit "Book", class: "btn btn-primary w-100" %>
             <% end %>
         <% end %>
       </div>
     </div>
   </div>
+    <% if user_signed_in? %>
+      <% if @venue.user_id == current_user.id && %>
+        <%= link_to 'Edit', edit_venue_path(@venue) %> |
+      <% end %>
+    <% end %>
+    <%= link_to 'Back', venues_path %>
 </div>
-
-
-<% if @venue.user_id == current_user %>
-  <%= link_to 'Edit', edit_venue_path(@venue) %> |
-<% end %>
-<%= link_to 'Back', venues_path %>
 
 
 

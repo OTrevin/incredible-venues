@@ -12,9 +12,9 @@ const datePickr = () => {
     const unavailableDates = JSON.parse(
       document.querySelector("#venue-booking-dates").dataset.unavailable
     );
-    if (!(/account\/bookings\/\d+\/edit/).test(window.location.href)) {
-      endDateInput.disabled = true;
-    }
+    // if (!(/account\/bookings\/\d+\/edit/).test(window.location.href)) {
+    //   endDateInput.disabled = true;
+    // }
     console.log(unavailableDates)
     flatpickr(startDateInput, {
       minDate: "today",
