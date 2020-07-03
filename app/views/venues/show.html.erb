@@ -59,6 +59,9 @@
     <h1><%= @venue.name %></h1>
     <p><%= @venue.address %></p>
     <h4>Price per day: $<%= @venue.price_per_day %></h4>
+    <p><% @venue.amenities.each do |amenity|%>
+      <%= amenity.name %>, 
+      <% end %></p>
   </div>
 </div>
 
