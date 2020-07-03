@@ -1,17 +1,19 @@
 
-<div class="venue-title">
-  <h3><%= @venue.name %> | <%= @venue.description %> </h3>
-</div>
 
-<div class="main-fotos-container" >
-  <div class="first-foto rounded">
-   <%= cl_image_tag @venue.photos[0].key, crop: :fill, class: "product-image", data:{toggle: "modal", target:"#exampleModal" } %>
+<div class="container">
+  <div class="venue-title">
+    <h3><%= @venue.name %> | <%= @venue.description %> </h3>
   </div>
+  <div class="main-fotos-container" >
+    <div class="first-foto rounded">
+     <%= cl_image_tag @venue.photos[0].key, crop: :fill, class: "product-image", data:{toggle: "modal", target:"#exampleModal" } %>
+    </div>
 
-  <div class="grid-fotos">
-    <% @venue.photos[1..-1].each do |photo| %>
-      <%= cl_image_tag photo.key, crop: :fill, class: "product-image", data:{toggle: "modal", target:"#exampleModal" }%>
-    <% end %>
+    <div class="grid-fotos">
+      <% @venue.photos[1..-1].each do |photo| %>
+        <%= cl_image_tag photo.key, width:225, height:270, crop: :fill, class: "product-image", data:{toggle: "modal", target:"#exampleModal" }%>
+      <% end %>
+    </div>
   </div>
 </div>
 
@@ -39,7 +41,7 @@
                   <%= cl_image_tag photo.key, crop: :fill%>
                 </div>
               <% end %>
-              </div>
+            </div>
               <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
@@ -71,7 +73,6 @@
         <% end %>
       </div>
     </div>
-
   </div>
     <% if user_signed_in? %>
       <% if @venue.user_id == current_user.id && %>
@@ -79,7 +80,6 @@
       <% end %>
     <% end %>
     <%= link_to 'Back', venues_path %>
-
 </div>
 
 
