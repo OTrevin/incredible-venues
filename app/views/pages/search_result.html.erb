@@ -16,15 +16,6 @@
   <div class = "search-result-title">
     <h3> <%= @venues.length %> Venues available for "<strong><%= params[:search][:name] %></strong>"<h3>
   </div>
-  <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Amenities
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-    <button class="dropdown-item" type="button">Wifi</button>
-    <button class="dropdown-item" type="button">Airconditioning</button>
-    <button class="dropdown-item" type="button">Kitchen</button>
-  </div>
 </div>
 
 <div class="container mt-5">
@@ -37,7 +28,9 @@
         <div class ="venue-card-infos">
           <h3 class="venue-card-name"><%= link_to venue.name, venue_path(venue) %></h3>
           <p class="venue-card-description"><%= venue.description %></p>
-          <p class="venue-card-amenities">1 guest · Studio · 1 bed · 1 shared bathroom</p>
+          <p class="venue-card-amenities"><% @venue.amenities.each do |amenity|%>
+            <%= amenity.name %> | 
+            <% end %></p>
           <p class="venue-card-capacity"><%= venue.capacity %> PAX</p>
           <h3 class="venue-card-price"><strong>$<%= venue.price_per_day %> per day</strong></h3>
         </div>
